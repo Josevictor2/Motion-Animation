@@ -11,7 +11,9 @@ export const Layout : FC<LayoutProps> = ({ children }) => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            flexDirection: "column",
             height: '100vh',
+            gap: '20px',
         }}>
             {children}
         </Container>
