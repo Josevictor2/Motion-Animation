@@ -8,16 +8,21 @@ import { ScaleInHover } from '../src/animation/ScaleInHover';
 import { SliderLeftCenter } from '../src/animation/Slider/SliderLeftCenter';
 import { AccordionDefault } from '../src/animation/Accordion/AccordionDefault';
 import { AccordionRotate } from '../src/animation/Accordion/AccordionRotation';
+import { ModalDefault } from '../src/animation/Modal/ModalDefault';
+import { ContainerModal } from '../src/components/ContainerModal';
 
 const Home: NextPage = () => {
+  const [isOpen, setIsOpen] = React.useState(false)
+  const openModal = () => setIsOpen(true)
+  const closeModal = () => setIsOpen(false)
   return (
     <>
       <HeadTitle description='Home' />
       <Layout>
-        <AccordionRotate />
-        <AccordionRotate />
-        <AccordionRotate />
-        <AccordionRotate />
+        <button onClick={openModal}>Open Modal</button>
+        <ModalDefault isOpen={isOpen} closeModal={closeModal}>
+          <ContainerModal closeModal={closeModal}/>
+        </ModalDefault>
       </Layout>
     </>
   );
