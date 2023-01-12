@@ -6,15 +6,18 @@ import { Layout } from '../src/components/Layout';
 import { DivComponent } from '../src/components/DivComponent';
 import { ScaleInHover } from '../src/animation/ScaleInHover';
 import { SliderLeftCenter } from '../src/animation/Slider/SliderLeftCenter';
+import { AccordionDefault } from '../src/animation/Accordion/AccordionDefault';
+import { AccordionRotate } from '../src/animation/Accordion/AccordionRotation';
 
 const Home: NextPage = () => {
   return (
     <>
       <HeadTitle description='Home' />
       <Layout>
-        <SliderLeftCenter>
-          <DivComponent />
-        </SliderLeftCenter>
+        <AccordionRotate />
+        <AccordionRotate />
+        <AccordionRotate />
+        <AccordionRotate />
       </Layout>
     </>
   );
