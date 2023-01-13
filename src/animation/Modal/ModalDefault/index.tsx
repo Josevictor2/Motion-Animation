@@ -8,13 +8,20 @@ type ModalProps = {
 }
 
 export const ModalDefault: FC<ModalProps> = ({children, isOpen, closeModal}) => {
-  const modalRef = useRef<HTMLDivElement>(null)
+  const modalRef = useRef<HTMLDivElement>(null);
 
   const handleWindowKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === "Escape") {
         closeModal()
     }
   }, [closeModal]);
+
+  const handleClickOutside = (e: React.MouseEvent<HTMLDivElement>) => {
+    if(e.target !== e.currentTarget) {
+      return;
+    }
+    closeModal();
+  }
 
   useEffect(() => {
     window.addEventListener("keydown", handleWindowKeyDown);
@@ -27,7 +34,7 @@ export const ModalDefault: FC<ModalProps> = ({children, isOpen, closeModal}) => 
       y: 0,
       opacity: 1,
       transition: {
-        duration: 1.5,
+        duration: 1.3,
         type: 'tween',
       },
       transitionDelay: isOpen ? '0.3s' : '',
@@ -38,7 +45,7 @@ export const ModalDefault: FC<ModalProps> = ({children, isOpen, closeModal}) => 
       y: '150%',
       opacity: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.2,
         type: 'tween',
       },
       background: 'rgba(0,0,0,0)',
@@ -50,6 +57,7 @@ export const ModalDefault: FC<ModalProps> = ({children, isOpen, closeModal}) => 
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            onClick={(e) => handleClickOutside(e)}
             initial={'hidden'}
             animate={'visible'}
             exit={'hidden'}
@@ -66,7 +74,7 @@ export const ModalDefault: FC<ModalProps> = ({children, isOpen, closeModal}) => 
               zIndex: 1001,
             }}
           >
-            <div ref={modalRef}>
+            <div>
               {children}
             </div>
           </motion.div>
