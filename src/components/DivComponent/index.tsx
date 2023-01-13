@@ -1,12 +1,16 @@
 import { Box } from "@mui/material"
+import { FC } from "react"
 
-export const DivComponent = () => {
+type DivComponentProps = Record<'color', string>
+
+export const DivComponent: FC<DivComponentProps> = ({color}) => {
     return (
         <Box sx={{
-            height: '70px',
-            width: '200px',
-            backgroundColor: 'red',
+            minHeight: '70px',
+            minWidth: '100px',
+            backgroundColor: color,
             borderRadius: '10px',
+            pointerEvents: 'none',
         }} />
     )
 }

@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useRef } from 'react'
+import { FC, useCallback, useEffect } from 'react'
 import { AnimatePresence, motion, Variants } from 'framer-motion'
 
 type ModalProps = {
@@ -8,7 +8,6 @@ type ModalProps = {
 }
 
 export const ModalDefault: FC<ModalProps> = ({children, isOpen, closeModal}) => {
-  const modalRef = useRef<HTMLDivElement>(null);
 
   const handleWindowKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === "Escape") {
@@ -34,10 +33,10 @@ export const ModalDefault: FC<ModalProps> = ({children, isOpen, closeModal}) => 
       y: 0,
       opacity: 1,
       transition: {
-        duration: 1.3,
+        duration: 0.1,
         type: 'tween',
       },
-      transitionDelay: isOpen ? '0.3s' : '',
+      transitionDelay: isOpen ? '0.1s' : '',
       transitionProperty: 'background',
       background: isOpen ? ['rgba(0,0,0,0)', 'rgba(0,0,0,0.7)'] : '',
     }),
@@ -74,9 +73,7 @@ export const ModalDefault: FC<ModalProps> = ({children, isOpen, closeModal}) => 
               zIndex: 1001,
             }}
           >
-            <div>
-              {children}
-            </div>
+            {children}
           </motion.div>
         )}
       </AnimatePresence>

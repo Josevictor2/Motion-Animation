@@ -11,6 +11,7 @@ import { AccordionRotate } from '../src/animation/Accordion/AccordionRotation';
 import { ModalDefault } from '../src/animation/Modal/ModalDefault';
 import { ContainerModal } from '../src/components/ContainerModal';
 import { CarrouselDefault } from '../src/animation/carrousel/CarrouselDefault';
+import { Menu } from '../src/animation/Menu';
 
 const Home: NextPage = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -20,11 +21,12 @@ const Home: NextPage = () => {
     <>
       <HeadTitle description='Home' />
       <Layout>
-        {/*<button onClick={openModal}>Open Modal</button>
-        <ModalDefault isOpen={isOpen} closeModal={closeModal}>
-          <ContainerModal closeModal={closeModal}/>
-  </ModalDefault>*/}
-        <CarrouselDefault/>
+          {/*<button onClick={openModal}>Open Modal</button>
+          <ModalDefault isOpen={isOpen} closeModal={closeModal}>
+            <ContainerModal closeModal={closeModal}/>
+          </ModalDefault>
+          <CarrouselDefault/>*/}
+          <Menu />
       </Layout>
     </>
   );

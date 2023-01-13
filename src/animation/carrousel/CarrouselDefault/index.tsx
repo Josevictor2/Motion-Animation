@@ -1,58 +1,77 @@
-import { Box } from '@mui/material'
-import { useCycle, motion } from 'framer-motion'
-import { useState } from 'react'
+import { AnimatePresence, motion } from "framer-motion"
+import { useEffect, useRef, useState } from "react"
+import { DivComponent } from "../../../components/DivComponent"
+
+const colors = [
+  '#0000CD',
+  '#006400',
+  '#008000',
+  '#008080',
+  '#00BFFF',
+  '#00CED1',
+  '#00FA9A',
+]
 
 export const CarrouselDefault = () => {
-  const [index, setIndex] = useState(0)
-  const slides = [
-    {
-      background: '#ff0000',
-    },
-    {
-      background: '#00ff00',
-    },
-    {
-      background: '#0000ff',
-    }
-  ]
+  const [ width, setWidth ] = useState(0);
+  const carousel = useRef<HTMLDivElement>(null);
 
-  const nextSlide = () => {
-    if (index === slides.length - 1) {
-      setIndex(0)
-    } else {
-      setIndex(index + 1)
+  useEffect(() => {
+    if (carousel.current) {
+      setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth)
     }
-  }
-
-  const prevSlide = () => {
-    if (index === 0) {
-      setIndex(slides.length - 1)
-    } else {
-      setIndex(index - 1)
-    }
-  }
-
-  return (
-    <div>
-      <motion.div
+  }, [])
+return(
+  <div style={{
+    width:'90%',
+  }}>
+      <AnimatePresence>
+        <motion.div 
+        ref={carousel} 
+        whileTap={{ cursor: 'grabbing' }}
         style={{
-          display: 'flex',
-          flexDirection: 'row',
-          gap: '20px',
-        }}
-        animate={{ x: -index * 100 + '%' }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-      >
-        {slides.map((slide, i) => (
-          <Box key={i} sx={{
-            width: '100px',
-            height: '100px',
-            background: slide.background,
-          }} />
-        ))}
-      </motion.div>
-      <button onClick={nextSlide}>Next</button>
-      <button onClick={prevSlide}>Previous</button>
+          cursor: 'grab',
+          overflow: 'hidden',
+        }}>
+            <motion.div 
+            drag="x"
+            dragConstraints={{
+              right: 0,
+              left: -width,
+            }}
+            initial={{
+              x: 0,
+            }}
+            animate={{
+              x: -width,
+            }}
+            exit={{
+              x: 0,
+            }}
+            transition={{
+              duration: 5,
+              ease: 'easeInOut',
+              repeat: Infinity,
+            }}
+            style={{
+              display: 'flex',
+              gap: '20px',
+            }}>
+              {
+                colors.map((color, index) => (
+                    <motion.div style={{
+                      minHeight: '100px',
+                      minWidth: '200px',
+                      padding: '20px',
+                    }} 
+                    key={index}>
+                      <DivComponent key={index} color={color} />
+                    </motion.div>
+                ))
+              }
+            </motion.div>
+        </motion.div>
+      </AnimatePresence>
     </div>
-  )
+)
 }
