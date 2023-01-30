@@ -1,39 +1,23 @@
-import { Box, Container, Typography } from "@mui/material"
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { SvgArrowLeft } from './Icon/ArrowLeft';
 
 export const AccordionRotate  = () => {
   const [expanded, setExpanded] = useState<boolean>(false);
   return (
-    <Container sx={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      flexDirection: "column",
-    }}>
-      <Box sx={{
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        width: '300px',
-        padding: '10px',
-        borderRadius: '10px',
-        border: '1px solid #000',
-      }}>
-        <Typography> Accordion Rotate</Typography>
-        <Box sx={{
-          flexGrow: 1
-        }} />
+    <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-row items-center w-80 p-3 rounded-xl border-2 border-[#000]">
+        <p> Accordion Rotate</p>
+        <div className="grow" />
         <motion.div
           initial={{ rotate: 0 }}
           animate={{ rotate: expanded ? 90 : 0 }}
           transition={{ duration: 0.5 }}
           onClick={() => setExpanded(!expanded)}
         >
-          <ArrowForwardIosIcon />
+          <SvgArrowLeft className='cursor-pointer' />
         </motion.div>
-      </Box>
+      </div>
       <AnimatePresence initial={false}>
         {
           expanded && (
@@ -49,22 +33,16 @@ export const AccordionRotate  = () => {
               }}
               transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
             >
-              <Box sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                transformOrigin: 'top center',
-              }}>
-                <Box>teste accordion</Box>
-                <Box>teste accordion</Box>
-                <Box>teste accordion</Box>
-                <Box>teste accordion</Box>
-              </Box>
+              <div className="flex flex-col justify-center items-center transform origin-[center_top]">
+                <p>teste accordion</p>
+                <p>teste accordion</p>
+                <p>teste accordion</p>
+                <p>teste accordion</p>
+              </div>
             </motion.section>
           )
         }
       </AnimatePresence>
-    </Container>
+    </div>
   )
 }

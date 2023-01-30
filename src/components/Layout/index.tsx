@@ -1,21 +1,13 @@
-import { Box, Container } from "@mui/material";
 import { FC } from "react";
 
 type LayoutProps = {
-    children: React.ReactNode;
+  children: React.ReactNode;
 };
 
 export const Layout : FC<LayoutProps> = ({ children }) => {
     return (
-        <Container sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: "column",
-            height: '100vh',
-            gap: '20px',
-        }}>
+        <div className="flex justify-center items-center flex-col h-screen gap-5">
             {children}
-        </Container>
+        </div>
     )
 }

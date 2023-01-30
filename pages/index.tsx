@@ -10,7 +10,7 @@ import { AccordionDefault } from '../src/animation/Accordion/AccordionDefault';
 import { AccordionRotate } from '../src/animation/Accordion/AccordionRotation';
 import { ModalDefault } from '../src/animation/Modal/ModalDefault';
 import { ContainerModal } from '../src/components/ContainerModal';
-import { CarrouselDefault } from '../src/animation/carrousel/CarrouselDefault';
+import { Input } from '../src/components/Input';
 
 const Home: NextPage = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -20,11 +20,11 @@ const Home: NextPage = () => {
     <>
       <HeadTitle description='Home' />
       <Layout>
-        {/*<button onClick={openModal}>Open Modal</button>
+        <Input type="email" text='Email' aria-aria-describedby='Informe seu email.' />
+        {/* <button onClick={openModal}>Open Modal</button>
         <ModalDefault isOpen={isOpen} closeModal={closeModal}>
-          <ContainerModal closeModal={closeModal}/>
-  </ModalDefault>*/}
-        <CarrouselDefault/>
+          <ContainerModal closeModal={closeModal}isOpen={isOpen}/>
+        </ModalDefault> */}
       </Layout>
     </>
   );

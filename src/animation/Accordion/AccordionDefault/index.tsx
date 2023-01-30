@@ -1,18 +1,12 @@
-import { Box } from "@mui/material";
-import { AnimatePresence, CustomValueType, motion } from "framer-motion";
 import { FC, useState } from "react";
+import { AnimatePresence, CustomValueType, motion } from "framer-motion";
 
 type AccordionProps = Partial<Record<'initialColor' |"endColor", CustomValueType>>;
 
 export const AccordionDefault: FC<AccordionProps> = ({initialColor="#0055FF", endColor="#FF0088"}) => {
   const [expanded, setExpanded] = useState<boolean>(false);
   return (
-    <Box sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-    }}>
+    <div className="flex flex-col justify-center items-center">
       <motion.header
         style={{
           background: `${initialColor}`,
@@ -41,22 +35,16 @@ export const AccordionDefault: FC<AccordionProps> = ({initialColor="#0055FF", en
               }}
               transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
             >
-              <Box sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                transformOrigin: 'top center',
-              }}>
-                <Box>teste accordion</Box>
-                <Box>teste accordion</Box>
-                <Box>teste accordion</Box>
-                <Box>teste accordion</Box>
-              </Box>
+              <div className="flex flex-col justify-center items-center transform origin-[center_top]">
+                <p>teste accordion</p>
+                <p>teste accordion</p>
+                <p>teste accordion</p>
+                <p>teste accordion</p>
+              </div>
             </motion.section>
           )
         }
       </AnimatePresence>
-    </Box>
+    </div>
   )
 }
