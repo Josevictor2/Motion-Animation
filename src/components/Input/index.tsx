@@ -3,15 +3,16 @@ import { cn } from "../../utils/mergeCss"
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
-    text: string
+    text: string;
+    indexAcessible: number;
   }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, text, ...props }, ref) => {
+  ({ className, text, indexAcessible, ...props }, ref) => {
     return (
       <div className="w-96 h-10 relative group">
         <input
-        tabIndex={0}
+        tabIndex={indexAcessible}
         className={cn(
           "flex h-10 w-full rounded-md border border-slate-300 bg-transparent py-2 px-3 text-sm focus:outline-none focus:ring-1 focus:ring-slate-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:text-slate-50 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900",
           className

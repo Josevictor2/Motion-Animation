@@ -11,6 +11,7 @@ import { AccordionRotate } from '../src/animation/Accordion/AccordionRotation';
 import { ModalDefault } from '../src/animation/Modal/ModalDefault';
 import { ContainerModal } from '../src/components/ContainerModal';
 import { Input } from '../src/components/Input';
+import { Login } from '../src/components/Login';
 
 const Home: NextPage = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -20,11 +21,7 @@ const Home: NextPage = () => {
     <>
       <HeadTitle description='Home' />
       <Layout>
-       <Input type="email" text='Email' aria-describedby='Informe seu email.' />
-        <button onClick={openModal}>Open Modal</button>
-        <ModalDefault isOpen={isOpen} closeModal={closeModal}>
-          <ContainerModal closeModal={closeModal}isOpen={isOpen}/>
-        </ModalDefault>
+       <Login />
       </Layout>
     </>
   );
