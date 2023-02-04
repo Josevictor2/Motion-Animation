@@ -3,15 +3,8 @@ import type { NextPage } from 'next';
 
 import { HeadTitle } from '../src/components/Head';
 import { Layout } from '../src/components/Layout';
-import { DivComponent } from '../src/components/DivComponent';
-import { ScaleInHover } from '../src/animation/ScaleInHover';
-import { SliderLeftCenter } from '../src/animation/Slider/SliderLeftCenter';
-import { AccordionDefault } from '../src/animation/Accordion/AccordionDefault';
-import { AccordionRotate } from '../src/animation/Accordion/AccordionRotation';
-import { ModalDefault } from '../src/animation/Modal/ModalDefault';
+import { ModalDropIn } from '../src/animation/ModalDropIn';
 import { ContainerModal } from '../src/components/ContainerModal';
-import { Input } from '../src/components/Input';
-import { Login } from '../src/components/Login';
 
 const Home: NextPage = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -21,7 +14,11 @@ const Home: NextPage = () => {
     <>
       <HeadTitle description='Home' />
       <Layout>
-       <Login />
+          <button onClick={openModal}>Open Modal</button>
+          
+          <ModalDropIn closeModal={closeModal} isOpen={isOpen}>
+            <ContainerModal closeModal={closeModal} isOpen={isOpen} />
+          </ModalDropIn>
       </Layout>
     </>
   );

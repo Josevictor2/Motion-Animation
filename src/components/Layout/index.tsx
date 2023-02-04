@@ -6,7 +6,7 @@ type LayoutProps = {
 
 export const Layout : FC<LayoutProps> = ({ children }) => {
     return (
-        <div className="flex justify-center items-center flex-col h-screen gap-5">
+        <div className="flex justify-center items-center flex-col min-h-screen gap-5">
             {children}
         </div>
     )

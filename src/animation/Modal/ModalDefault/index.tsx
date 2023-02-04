@@ -57,28 +57,28 @@ export const ModalDefault: FC<ModalProps> = ({children, isOpen, closeModal}) => 
       initial={false}
       mode="wait"
       onExitComplete={() => null}>
-        {isOpen && (
-          <motion.div
-            onClick={(e) => handleClickOutside(e)}
-            initial={'hidden'}
-            animate={'visible'}
-            exit={'hidden'}
-            variants={variants}
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '100vw',
-              height: '100%',
-              zIndex: 1001,
-            }}
-          >
-            {children}
-          </motion.div>
-        )}
+          {isOpen && (
+            <motion.div
+              onClick={(e) => handleClickOutside(e)}
+              initial={'hidden'}
+              animate={'visible'}
+              exit={'hidden'}
+              variants={variants}
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100vw',
+                height: '100%',
+                zIndex: 1001,
+              }}
+            >
+              {children}
+            </motion.div>
+          )}
       </AnimatePresence>
     </>
   )

@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { FC } from "react";
 
 type ContainerProps = {
@@ -23,6 +22,7 @@ return(
      onKeyDown={handleKeyPress}
      tabIndex={0}
      aria-label="Botão para fechar o modal"
+     className="text-gray-900"
      onClick={closeModal}>
       Close Modal
     </button>
