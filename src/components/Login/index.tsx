@@ -8,7 +8,10 @@ export const Login = () => {
           <div className="w-full">
             <div className="text-center">
               <h1 className="text-3xl font-semibold text-gray-900">Login</h1>
-              <p className="mt-2 text-gray-500">Faça Login para entrar no sistema</p>
+              <div className="flex flex-row items-center justify-center">
+                <p className="mt-2 text-gray-500 whitespace-nowrap overflow-hidden animate-typing">Faça Login para entrar no sistema</p>
+                <div className="h-[1.2rem] w-1 border-r-2 border-r-slate-500 animate-pulse mt-2 ml-1" />
+              </div>
             </div>
             <div className="mt-5">
               <form>
@@ -22,7 +25,10 @@ export const Login = () => {
                     Entrar
                   </button>
                 </div>
-                <p className="text-center text-sm text-gray-500">Você não tem uma conta ainda? <a href="#!" className="font-semibold text-gray-600 hover:underline focus:text-gray-800 focus:outline-none">Registrar</a>.</p>
+                <p className="text-center text-sm text-gray-500">
+                  Você não tem uma conta ainda? 
+                  <a href="#!" className="font-semibold text-green-400 hover:underline focus:text-green-800 focus:outline-none">Registrar</a>.
+                </p>
               </form>
             </div>
           </div>
