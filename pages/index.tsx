@@ -6,6 +6,7 @@ import { Layout } from '../src/components/Layout';
 import { ModalDropIn } from '../src/animation/ModalDropIn';
 import { ContainerModal } from '../src/components/ContainerModal';
 import { Login } from '../src/components/Login';
+import { ModalDefault } from '../src/animation/Modal/ModalDefault';
 
 const Home: NextPage = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -15,11 +16,10 @@ const Home: NextPage = () => {
     <>
       <HeadTitle description='Home' />
       <Layout>
-          {/* <button onClick={openModal}>Open Modal</button> 
-          <ModalDropIn closeModal={closeModal} isOpen={isOpen}>
+          <button onClick={openModal}>Open Modal</button> 
+          <ModalDefault closeModal={closeModal} isOpen={isOpen}>
             <ContainerModal closeModal={closeModal} isOpen={isOpen} />
-          </ModalDropIn> */}
-        <Login />
+          </ModalDefault>
       </Layout>
     </>
   );
