@@ -45,8 +45,12 @@ export const ModalDropIn: FC<ModalProps> = ({children, isOpen, closeModal}) => {
       },
     },
     exit: {
-        y: "40vh",
+        y: "150%",
         opacity: 0,
+        transition: {
+          duration: 0.2,
+          type: 'tween',
+        },
     },
 };
 
@@ -57,13 +61,14 @@ export const ModalDropIn: FC<ModalProps> = ({children, isOpen, closeModal}) => {
     onExitComplete={() => null}>
         {
             isOpen ? (
-            <Backdrop onClick={(e) => handleClickOutside(e)}>
+            <Backdrop>
                 <motion.div
-                onClick={(e) => e.stopPropagation()}
+                onClick={(e) => handleClickOutside(e)}
                 variants={dropIn}
                 initial={'hidden'}
                 animate={'visible'}
                 exit={'exit'}
+                className="fixed top-0 left-0 flex justify-center items-center w-screen h-full"
                 >
                     {children}
                 </motion.div>
