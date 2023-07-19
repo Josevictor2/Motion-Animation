@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { SearchIcon } from "./icon";
 
 export const SearchInput = () => {
