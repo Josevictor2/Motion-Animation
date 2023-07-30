@@ -3,21 +3,18 @@ import type { NextPage } from "next";
 
 import { HeadTitle } from "../src/components/Head";
 import { Layout } from "../src/components/Layout";
-import { ModalDropIn } from "../src/animation/ModalDropIn";
-import { ContainerModal } from "../src/components/ContainerModal";
-import { Login } from "../src/components/Login";
-import { ModalDefault } from "../src/animation/Modal/ModalDefault";
-import { SearchInput } from "../src/animation/searchInput";
+
+import { ActiveLink } from "../src/components/LinkActiveNavBar";
+import clsx from "clsx";
 
 const Home: NextPage = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
   return (
     <>
       <HeadTitle description="Home" />
       <Layout>
-        <SearchInput />
+        <ActiveLink href="/" className="text-red-800">
+          Home
+        </ActiveLink>
       </Layout>
     </>
   );
