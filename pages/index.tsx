@@ -4,12 +4,13 @@ import type { NextPage } from "next";
 import { HeadTitle } from "../src/components/Head";
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../src/animation/Tabs";
+import App from "../src/components/Navigation";
 
 const Home: NextPage = () => {
   return (
     <>
       <HeadTitle description="Home" />
-      <div className="relative group space-y-2 flex flex-col">
+      {/* <div className="relative group space-y-2 flex flex-col">
         <Tabs defaultValue="account" className="w-[400px] relative">
           <TabsList className='h-16 z-10'>
               <TabsTrigger value="account" >Account</TabsTrigger>
@@ -23,7 +24,8 @@ const Home: NextPage = () => {
             <TabsContent value="teste1">Change your password here.</TabsContent>
             <TabsContent value="teste2">Change your password here.</TabsContent>
           </Tabs>
-      </div>
+      </div> */}
+      <App />
     </>
   );
 };
