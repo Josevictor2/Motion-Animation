@@ -26,4 +26,10 @@
           scrollbar-width: none;  /* Firefox */
       }
     }
+
+    @variants tabs {
+      .indicator{
+        transition: left .4s;
+      }
+    }
   }

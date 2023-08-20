@@ -1,13 +1,4 @@
-import * as React from "react";
-import type { NextPage } from "next";
-
-import { HeadTitle } from "../src/components/Head";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../src/animation/Tabs";
-
-const Home: NextPage = () => {
-
-  React.useEffect(() => {
-    let tabs: NodeListOf<Element> = document.querySelectorAll(".tab");
+let tabs: NodeListOf<Element> = document.querySelectorAll(".tab");
 let indicator: HTMLElement | null = document.querySelector(".indicator");
 let panels: NodeListOf<Element> = document.querySelectorAll(".tab-panel");
 
@@ -40,24 +31,3 @@ tabs.forEach(tab => {
     });
   });
 });
-
-  }, []);
-  return (
-    <>
-      <HeadTitle description="Home" />
-      <Tabs defaultValue="account" className="w-[400px]">
-      <TabsList>
-        <TabsTrigger value="account">Account</TabsTrigger>
-        <TabsTrigger value="password">Password</TabsTrigger>
-        <TabsTrigger value="value">value</TabsTrigger>
-      </TabsList>
-      <TabsContent value="account">Make changes to your account here.</TabsContent>
-      <TabsContent value="password">Change your password here.</TabsContent>
-      <TabsContent value="value">Change your password here.</TabsContent>
-    </Tabs>
-
-    </>
-  );
-};
-
-export default Home;
