@@ -4,10 +4,11 @@
 
 @layer base {
     body {
-      @apply bg-gray-900
-        dark:bg-gray-900
+      @apply bg-gray-400
         text-gray-50
-        dark:text-gray-900
+        h-screen
+        grid
+        place-items-center
         transition-colors
         duration-1000;
     }
