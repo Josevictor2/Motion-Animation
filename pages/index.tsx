@@ -4,7 +4,7 @@ import { SelectAndInput } from "../src/components/CreateSelectAndInput";
 
 const Home: NextPage = () => {
   return (
-    <SelectAndInput />
+    <><SelectAndInput /></>
   );
 };
 
